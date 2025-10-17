@@ -18,19 +18,19 @@ export default function Chat() {
   const sampleQuestions = [
     {
       icon: HelpCircle,
-      text: "What are the key technical skills?",
+      text: "What are Kees' key technical skills?",
     },
     {
       icon: Briefcase,
-      text: "What work experience is listed?",
+      text: "List Kees' work experience",
     },
     {
       icon: BookOpen,
-      text: "Tell me about the education background",
+      text: "Tell me about Kees' educational background",
     },
     {
-      icon: Award,
-      text: "What certifications are included?",
+      icon: Microphone,
+      text: "How do you prounounce the name Kees?",
     },
   ];
 
