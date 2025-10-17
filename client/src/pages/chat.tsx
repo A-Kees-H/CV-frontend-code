@@ -138,7 +138,7 @@ export default function Chat() {
     if (isInitialLoad.current) {
       // Scroll 20% down from the top only once
       container.scrollTo({
-        top: container.scrollHeight * 0.2,
+        top: container.scrollHeight * 0.1,
         behavior: "smooth",
       });
       isInitialLoad.current = false;
