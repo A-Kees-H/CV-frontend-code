@@ -14,7 +14,7 @@ export const chatSessionSchema = z.object({
 
 export const queryRequestSchema = z.object({
   session_id: z.string(),
-  prompt: z.string().min(1).max(1000),
+  prompt: z.string().min(1).max(10000),
 });
 
 export const queryResponseSchema = z.object({
