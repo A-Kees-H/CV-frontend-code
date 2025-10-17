@@ -31,7 +31,7 @@ export default function Chat() {
     },
     {
       icon: Mic,
-      text: "How do you prounounce the name Kees?",
+      text: "How do you pronounce the name Kees?",
     },
   ];
 
@@ -228,7 +228,7 @@ export default function Chat() {
                 </div>
                 <h2 className="text-2xl font-semibold mb-2 text-foreground">Welcome to CV Query Assistant</h2>
                 <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-                  Ask me anything about the CV! I use RAG technology to provide accurate, context-aware answers.
+                  I'm a dynamic agent using RAG to answer questions about Kees Hartley's late 2025 CV. Ask me anything!
                 </p>
                 
                 {/* Sample Questions */}
