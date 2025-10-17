@@ -16,6 +16,7 @@ export default function Chat() {
   const { toast } = useToast();
 
   const sampleQuestions = [
+    
     {
       icon: HelpCircle,
       text: "What are Kees' key technical skills?",
@@ -182,7 +183,7 @@ export default function Chat() {
     return () => window.removeEventListener('keydown', handleEscKey);
   }, [isPdfViewerOpen]);
 
-  const isInputDisabled = sendMessageMutation.isPending || inputValue.length === 0 || inputValue.length > 1000;
+  const isInputDisabled = sendMessageMutation.isPending || inputValue.length === 0 || inputValue.length > 10000;
 
   return (
     <div className="h-screen flex flex-col bg-background text-foreground">
