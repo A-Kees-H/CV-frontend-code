@@ -3,7 +3,7 @@ import { useMutation } from "@tanstack/react-query";
 import { Button } from "@/components/ui/button";
 import { Textarea } from "@/components/ui/textarea";
 import { useToast } from "@/hooks/use-toast";
-import { Briefcase, MessageCircle, Plus, Send, Lightbulb, BookOpen, Award, HelpCircle, FileText, X } from "lucide-react";
+import { Briefcase, Mic, MessageCircle, Plus, Send, Lightbulb, BookOpen, Award, HelpCircle, FileText, X } from "lucide-react";
 import type { Message, QueryRequest, QueryResponse } from "@shared/schema";
 
 export default function Chat() {
@@ -30,7 +30,7 @@ export default function Chat() {
       text: "Tell me about Kees' educational background",
     },
     {
-      icon: Microphone,
+      icon: Mic,
       text: "How do you prounounce the name Kees?",
     },
   ];
