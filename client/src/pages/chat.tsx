@@ -372,10 +372,10 @@ export default function Chat() {
                 <kbd className="px-1.5 py-0.5 text-xs bg-muted rounded border border-border ml-1">Shift+Enter</kbd> for new line
               </p>
               <span 
-                className={`text-xs ${inputValue.length > 1000 ? 'text-destructive' : 'text-muted-foreground'}`}
+                className={`text-xs ${inputValue.length > 10000 ? 'text-destructive' : 'text-muted-foreground'}`}
                 data-testid="text-char-count"
               >
-                {inputValue.length} / 1000
+                {inputValue.length} / 10000
               </span>
             </div>
           </form>
