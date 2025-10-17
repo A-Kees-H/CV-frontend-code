@@ -130,20 +130,17 @@ export default function Chat() {
       minute: "2-digit",
     });
 
-  // Scroll behavior fix: scroll 20% down on initial load, bottom on new messages
   useEffect(() => {
     const container = chatMessagesRef.current;
     if (!container) return;
 
     if (isInitialLoad.current) {
-      // Scroll 20% down from the top only once
       container.scrollTo({
         top: container.scrollHeight * 0.1,
         behavior: "smooth",
       });
       isInitialLoad.current = false;
     } else {
-      // Scroll to bottom when messages or mutation change
       setTimeout(() => {
         container.scrollTo({
           top: container.scrollHeight,
@@ -153,7 +150,6 @@ export default function Chat() {
     }
   }, [messages, sendMessageMutation.isPending]);
 
-  // Handle ESC key to close PDF viewer
   useEffect(() => {
     const handleEscKey = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isPdfViewerOpen) setIsPdfViewerOpen(false);
@@ -167,7 +163,6 @@ export default function Chat() {
 
   return (
     <div className="h-screen flex flex-col bg-background text-foreground">
-      {/* Header */}
       <header className="bg-card border-b border-border px-4 py-3 flex items-center justify-between sticky top-0 z-10">
         <div className="flex items-center gap-3">
           <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center">
@@ -190,7 +185,6 @@ export default function Chat() {
         </Button>
       </header>
 
-      {/* Chat Messages */}
       <main className="flex-1 overflow-hidden relative">
         <div ref={chatMessagesRef} className="h-full overflow-y-auto scrollbar-thin px-4 py-6">
           <div className="max-w-3xl mx-auto space-y-6">
@@ -226,7 +220,6 @@ export default function Chat() {
               </div>
             )}
 
-            {/* Messages */}
             <div className="space-y-6">
               {messages.map((message) => (
                 <div
@@ -305,7 +298,6 @@ export default function Chat() {
         </div>
       </main>
 
-      {/* Chat Input */}
       <div className="border-t border-border bg-background px-4 py-4 sticky bottom-0">
         <div className="max-w-3xl mx-auto">
           <form onSubmit={handleSubmit} className="relative">
@@ -362,7 +354,6 @@ export default function Chat() {
         </div>
       </div>
 
-      {/* PDF Viewer Drawer */}
       {isPdfViewerOpen && (
         <>
           <div
@@ -375,30 +366,43 @@ export default function Chat() {
             style={{ height: "90vh" }}
             data-testid="pdf-drawer"
           >
-            <div
-              className="flex items-center justify-between px-6 py-4 border-b border-border bg-background cursor-pointer hover:bg-muted/50 transition-colors"
-              onClick={() => setIsPdfViewerOpen(false)}
-              data-testid="pdf-header"
-            >
-              <div className="flex items-center gap-3">
+            <div className="flex items-center justify-between px-6 py-4 border-b border-border bg-background">
+              <div
+                className="flex items-center gap-3 cursor-pointer hover:bg-muted/50 transition-colors rounded-md px-2 py-1"
+                onClick={() => setIsPdfViewerOpen(false)}
+                data-testid="pdf-header"
+              >
                 <FileText className="w-5 h-5 text-primary" />
                 <div>
                   <h2 className="text-lg font-semibold text-foreground">CV Document</h2>
                   <p className="text-xs text-muted-foreground">Click here or press ESC to close</p>
                 </div>
               </div>
-              <Button
-                variant="ghost"
-                size="sm"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  setIsPdfViewerOpen(false);
-                }}
-                className="h-8 w-8 p-0"
-                data-testid="button-close-pdf"
-              >
-                <X className="w-5 h-5" />
-              </Button>
+
+              <div className="flex items-center gap-2">
+                <Button
+                  asChild
+                  variant="outline"
+                  size="sm"
+                  className="gap-2"
+                  data-testid="button-download-cv"
+                >
+                  <a href="/cv.pdf" download>
+                    <FileText className="w-4 h-4" />
+                    Download
+                  </a>
+                </Button>
+
+                <Button
+                  variant="ghost"
+                  size="sm"
+                  onClick={() => setIsPdfViewerOpen(false)}
+                  className="h-8 w-8 p-0"
+                  data-testid="button-close-pdf"
+                >
+                  <X className="w-5 h-5" />
+                </Button>
+              </div>
             </div>
 
             <div className="h-[calc(100%-4rem)] flex items-center justify-center p-6 overflow-auto">
