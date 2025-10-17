@@ -203,7 +203,7 @@ export default function Chat() {
                   Welcome to CV Query Assistant
                 </h2>
                 <p className="text-muted-foreground mb-8 max-w-md mx-auto">
-                  I'm a dynamic LangChain agent using RAG to answer questions about Kees Hartley's late 2025
+                  I'm a LangChain agent using RAG to answer questions about Kees Hartley's late 2025
                   CV. Ask me anything!
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-3 max-w-2xl mx-auto">
